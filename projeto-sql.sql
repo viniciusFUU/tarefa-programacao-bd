@@ -104,4 +104,21 @@ SELECT * FROM pedido
 WHERE ped_data = '2010-10-01' AND
 ped_prazo_entrega > 3;
 
---      14     --
+--        14         --
+SELECT 
+ip.ped_numero,
+p.pro_codigo,
+p.prod_descricao
+FROM item_pedido ip
+LEFT JOIN produto p
+ON ip.pro_codigo = p.pro_codigo
+WHERE ip.pro_codigo = 1;
+
+--        15         --
+SELECT 
+p.ped_numero,
+p.ped_data,
+c.cli_nome
+FROM PEDIDO p
+LEFT JOIN cliente c
+ON p.cli_codigo = c.cli_codigo;
